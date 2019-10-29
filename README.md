@@ -1,5 +1,8 @@
 # jdevmin-web
 
+A Social Media Web-app made using Spring Boot, Spring Security, Spring Data JPA, HTML/CSS and Thymeleaf tags.
+
+
 Instructions on how to run:
 
 Eventually this project will be hosted on my personal website which can be found at 'www.jdevmin.tech'.
@@ -10,16 +13,7 @@ First you'll have to create the database.
 
 $ create database jdevminweb
 
-
-then edit the application.properties file to suit your database.
-
-spring.datasource.username={your username}
-spring.datasource.password={your password}
-
-and the 'META-INF/persistence.xml' file also needs to be updated
-
-property name="hibernate.connection.user" value="{yourUsername}"
-property name="hibernate.connection.password" value="{yourPassword}"
+edit the DataSource Bean to use your username and password for your sql database.
 
 then these commands will run the application:
 
@@ -28,7 +22,7 @@ $ mvn spring-boot:run
 
 you can access the login page by going to http://localhost:8080/
 
-create an account by clicking [Create A New User] button from the landing page.
+create an account by clicking the Create A New User button from the landing page.
 
 You can access other accounts by going to /friends/find
 
