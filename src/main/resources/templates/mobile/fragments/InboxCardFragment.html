@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Inbox Card</title>
+  </head>
+
+  <style>
+    .inboxCardWrapper{
+      display: flex;
+      flex-direction: row;
+      height: 128px;
+      width: 512px;
+      border-style: solid;
+    }
+
+    .userPhoto, .userName{
+
+      height: 128px;
+      width: 128px;
+      border-style: solid;
+    }
+    .subject, .actions {
+      height: 128px;
+      width: 128px;
+      border-style: solid;
+      border-color: red;
+    }
+
+  </style>
+  <body>
+
+    <div class="inboxCardWrapper">
+
+      <div class="userPhoto">
+        picture
+        <img th:src="@{images/users/profile/(user=${message.fromUser})"/>
+
+      </div>
+
+      <div class="userName">
+<span th:text="${message.fromUser}">username</span><br>
+<span th:text="${message.date}">date</span><br>
+<span th:text="${message.subject}">subject</span>
+      </div>
+
+      <div class="subject">
+        subject
+        <span th:text="${message.subject}"/>
+      </div>
+
+      <div class="actions">
+
+      </div>
+
+
+    </div>
+
+  </body>
+</html>

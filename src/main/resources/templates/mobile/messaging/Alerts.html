@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>Updated UserHome</title>
+    <!--
+     #1a5276 - smokey-blue
+     #0e6655 - mossy green
+     #5499c7 - denim-light
+     #5dade2 - sky-blue
+     #45b39d - seafoam green
+     #cacfd2 - off white
+    -->
+
+    <!-- facebook color scheme
+
+    #e9ebee - background
+    #4267b2 - navbar
+    #1a2946 - navbar buttons
+    #fffeff - navbar text
+    #4267b2 - add friend buttons
+    #ffffff - add friend text on button
+    #1d2129 - post text color
+    #ffffff - post background color (white)
+    #93979f - subtext
+    #d2d5da - post filler text
+    #1d213d - create post - post content
+
+    resolution - 1920x1080
+   -->
+
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        margin: auto;
+        background-color: #e9ebee;
+
+        width: 100%;
+        height: 100%;
+      }
+
+
+            .navbar {
+              align-items: center;
+              justify-content: center;
+              display: flex;
+              flex-direction: row;
+              background-color: #4267b2;
+              width: 100%;
+              height: 52px;
+              position: fixed;
+              top:0;
+              border-style: solid;
+              border-width: 0 0 2px 0;
+              border-color: #1a5276;
+              border-style: inset;
+            }
+
+            .logo {
+              text-align: center;
+
+              height: 52px;
+              border-width: 2px;
+              margin-left: 10px;
+              margin-right: 6px;
+              margin-bottom: 24px;
+              align-self: center;
+              text-shadow: 2px 2px #1a5276;
+
+            }
+            .navbar .logo h1 {
+              color:#ffffff;
+
+            }
+
+            .navbar .searchBar {
+              margin-top: 6px;
+              margin-left: 4px;
+            }
+
+            .navbarLinks {
+
+              width:300px;
+            }
+
+            .navbarLinks ul {
+              margin-top: 16px;
+              display: flex;
+              flex-direction: row;
+              list-style-type: none;
+              height: 32px;
+              position: fixed;
+              top: 0;
+            }
+            .navbarLinks ul li {
+
+              color: #ffffff;
+              padding-left: 8px;
+              margin-left: 4px;
+              border-style: inset;
+              border-width: 0 0 0 1px;
+              width: 45px;
+
+            }
+
+            .userInterface {
+              display: flex;
+
+            }
+
+            .userInterface ul {
+              display: flex;
+              flex-direction: row;
+              list-style-type: none;
+
+            }
+            .userInterface ul li {
+              margin-right: 20px;
+              width: 24px;
+              height: 24px;
+
+            }
+
+            .userInterface ul li img {
+              height: 24px;
+              width: 24px;
+            }
+
+
+
+
+
+                  .linkBodyWrapper{
+                    margin-top: 64px;
+                    display: flex;
+                    flex-direction: row;
+                    max-width: 1080px;
+                    width: 100%;
+
+                  }
+
+                        .linkWrapper{
+                          width: 15%;
+                          background-color: #e9ebee;
+                          height: 100%;
+
+                        }
+
+                        .linkWrapper ul {
+                          list-style-type: none;
+                          margin: 0;
+                          padding: 0;
+                        }
+                        .linkWrapper ul li {
+                          margin: 10px 1px 10px 0;
+                          border-bottom-right-radius: 3px;
+                          border-top-right-radius: 3px;
+                        }
+
+                        .linkWrapper ul li:hover{
+                          background-color: white;
+                        }
+
+                        .userIcon img{
+                          margin-top: 8px;
+                          height: 48px;
+                          width: 48px;
+                        }
+
+
+
+
+
+      .bodyWrapper{
+        border-style: ridge;
+        border-width: 0 0 0 1px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-content:center;
+        width:85%;
+        background-color: #e9ebee;
+        min-height: 500px;
+        height: 90%;
+      }
+
+
+
+
+
+      .inboxCardWrapper{
+        display: flex;
+        flex-direction: row;
+        height: 128px;
+        width: 512px;
+        border-style: solid;
+      }
+
+      .userPhoto, .userName{
+
+        height: 128px;
+        width: 128px;
+        border-style: solid;
+      }
+      .subject, .actions {
+        height: 128px;
+        width: 128px;
+        border-style: solid;
+        border-color: red;
+      }
+
+
+
+
+
+    </style>
+  </head>
+  <body>
+
+
+
+    <div class="navbar">
+
+      <div class="logo">
+        <h1>j<h1>
+
+      </div>
+
+<div class="searchBar">
+<input type="search" name="search" value="" placeholder="search">
+</div>
+
+<div class="navbarLinks">
+  <ul>
+    <li>link</li>
+    <li>link</li>
+    <li>link</li>
+    <li>link</li>
+  </ul>
+</div>
+
+<div class="userInterface">
+
+  <ul>
+    <li> <img src="../../static/png/alert.png" alt=""> </li>
+    <li> <img src="../../static/png/friends.png" alt=""> </li>
+    <li> <img src="../../static/png/mail.png" alt=""> </li>
+
+  </ul>
+
+</div>
+
+
+  <div class="userIcon">
+
+  <img src="../../static/png/userIcon.png" alt="">
+
+  </div>
+
+</div>
+
+</div>
+
+
+<div class="linkBodyWrapper">
+
+
+    <div class="linkWrapper">
+
+      <ul>
+        <li>link</li>
+        <li>link</li>
+        <li>link</li>
+        <li>link</li>
+      </ul>
+
+    </div>
+
+    <div class="bodyWrapper">
+
+
+        <tr th:each="alert : ${userAlerts}">
+
+          <div class="inboxCardWrapper">
+
+            <div class="userPhoto">
+              picture
+                <img th:src="@{/images/users/profile/(user=${alert.fromUsername})}"/>
+
+            </div>
+
+            <div class="userName">
+      <span th:text="${alert.fromUsername}"> - username</span><br>
+      <span th:text="${alert.dateTime}"> - date</span><br>
+
+
+
+            </div>
+
+            <div class="subject">
+               subject: <span th:text="${alert.subject}"/>
+                content: <span th:text="${alert.content}"/>
+            </div>
+
+            <div class="actions">
+alert id: <span th:text="${alert.alertId}"/>
+                acknowledged: <span th:text="${alert.acknowledged}"/>
+
+                <a th:href="@{/friends/acceptRequest/alertId/(alertId=${alert.alertId})}">click to accept!</a>
+            </div>
+
+
+          </div>
+
+        </tr>
+
+    </div>
+
+  </div>
+
+  </body>
+</html>

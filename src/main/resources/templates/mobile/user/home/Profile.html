@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>{username}'s Profile</title>
+    <!--
+     #1a5276 - smokey-blue
+     #0e6655 - mossy green
+     #5499c7 - denim-light
+     #5dade2 - sky-blue
+     #45b39d - seafoam green
+     #cacfd2 - off white
+    -->
+
+    <!-- facebook color scheme
+
+    #e9ebee - background
+    #4267b2 - navbar
+    #1a2946 - navbar buttons
+    #fffeff - navbar text
+    #4267b2 - add friend buttons
+    #ffffff - add friend text on button
+    #1d2129 - post text color
+    #ffffff - post background color (white)
+    #93979f - subtext
+    #d2d5da - post filler text
+    #1d213d - create post - post content
+
+    resolution - 1920x1080
+   -->
+
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        margin: auto;
+        background-color: #e9ebee;
+
+        width: 100%;
+        overflow: visible;
+      }
+
+
+            .navbar {
+              align-items: center;
+              display: flex;
+              flex-direction: row;
+              background-color: #4267b2;
+              width: 100%;
+              height: 88px;
+              position: fixed;
+              top:0;
+              border-style: solid;
+              border-width: 0 0 2px 0;
+              border-color: #1a5276;
+              border-style: inset;
+            }
+
+            .logo {
+              text-align: center;
+              height: 52px;
+              margin-left: 10px;
+              margin-right: 6px;
+              margin-bottom: 24px;
+              align-self: center;
+              text-shadow: 2px 2px #1a5276;
+
+            }
+            .navbar .logo h1 {
+              color:#ffffff;
+
+            }
+
+            .navbar .searchBar {
+              margin-top: 6px;
+              margin-left: 4px;
+            }
+
+            .navbarLinks {
+
+              width:100%;
+
+
+            }
+
+            .navbarLinks ul {
+
+              width: 100%;
+
+
+              margin-top: 16px;
+              list-style-type: none;
+
+            }
+            .navbarLinks ul li {
+              display: inline-block;
+              font-size:24px;
+
+              color: #ffffff;
+
+              margin-left: 24px;
+
+              width: 70px;
+
+            }
+
+            .userInterface {
+              display: flex;
+
+            }
+
+            .userInterface ul {
+              display: flex;
+              flex-direction: row;
+              list-style-type: none;
+
+            }
+            .userInterface ul li {
+              margin-right: 20px;
+              width: 24px;
+              height: 24px;
+
+            }
+
+            .userInterface ul li img {
+              height: 24px;
+              width: 24px;
+            }
+
+
+
+
+
+                  .linkBodyWrapper{
+                    margin-top: 92px;
+                    display: flex;
+                    flex-direction: row;
+                    height: 100%;
+                    max-width: 1080px;
+                    width: 100%;
+
+                  }
+
+
+
+                        .userIcon img{
+                          margin-top: 8px;
+                          height: 48px;
+                          width: 48px;
+                        }
+
+
+
+
+
+      .bodyWrapper{
+        border-style: ridge;
+        border-width: 0 1px 0 1px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-content:center;
+        width:100%;
+        background-color: #e9ebee;
+        min-height: 500px;
+        height: 100%;
+      }
+
+
+            p {
+               color: #ffffff;
+              text-align:center;
+      font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+      font-size: 17px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 700;
+      line-height: 23px;
+            }
+
+            .postContent {
+              color: #333339;
+               font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+               font-size: 14px;
+               font-style: normal;
+               font-variant: normal;
+               font-weight: 400;
+               line-height: 20px;
+
+            }
+
+            .footer{
+              width: 100%;
+              height: auto;
+              background-color: #e9ebee;
+
+            }
+
+            .footer h1{
+              color:#ffffff;
+              text-shadow: 2px 2px 2px #333339;
+            }
+
+
+
+
+            .profileContainer{
+              margin: auto;
+              width: 90%;
+              height: 1200px;
+              border-style: solid;
+              border-width: 2px;
+            }
+
+            .userPhotoIcon{
+              height: 128px;
+              width: 128px;
+              border-style: solid;
+              border-width: 2px;
+            }
+
+.photoAndMessagingContainer {
+  border-style: solid;
+  border-width: 2px;
+  border-color: red;
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+            .messagingModuleContainer {
+              border-style: solid;
+              border-width: 2px;
+              height: 128px;
+              width: 100%;
+            }
+
+            .messagingModuleContainer ul {
+              list-style: none;
+              display: flex;
+              flex-direction: row;
+
+            }
+            .messagingModuleContainer ul li {
+              border-style: solid;
+              border-width: 2px;
+              border-color: green;
+              width: 48px;
+              height: 48px;
+            }
+
+            .detailsWrapper{
+              border-style: solid;
+              display: flex;
+              flex-direction: row;
+              border-width: 2px;
+
+              height: auto;
+            }
+
+            .userDetails {
+              border-style: solid;
+              border-width: 2px;
+              width: 50%;
+              height: 175px;
+            }
+            .userDetails ul, .userDetails li {
+              list-style: none;
+
+              text-align: left;
+              margin:0;
+              padding:0;
+            }
+
+            .rightOfDetails {
+              border-style: solid;
+              border-width: 2px;
+              width: 100%;
+            }
+
+
+            .userPostContainer {
+              margin: auto;
+              margin-top:6px;
+              margin-bottom:2px;
+              align-self: center;
+              width: 80%;
+              height: 300px;
+              background-color:#ffffff;
+              border-style: groove;
+              border-width: thin;
+            }
+
+              .userPostInfo {
+                max-width: 100%;
+                height: 45px;
+                background-color: #4267b2;
+                border-style: ridge;
+                border-width: thin;
+              }
+              p {
+                 color: #ffffff;
+                text-align:center;
+        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+        font-size: 17px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 700;
+        line-height: 23px;
+              }
+
+              .postContent {
+                color: #333339;
+                 font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+                 font-size: 14px;
+                 font-style: normal;
+                 font-variant: normal;
+                 font-weight: 400;
+                 line-height: 20px;
+
+              }
+
+              .userPostsOverflow{
+                overflow: scroll;
+                height: 655px;
+              }
+
+
+
+
+
+    </style>
+  </head>
+  <body>
+
+
+<!-- navbar start -->
+    <div class="navbar">
+
+<!-- logo -->
+      <div class="logo">
+        <h1>j<h1>
+
+      </div>
+
+<!-- search bar -->
+<div class="searchBar">
+<input type="search" name="search" value="" placeholder="search">
+</div>
+
+<!-- navbar links -->
+<div class="navbarLinks">
+  <ul>
+    <li><a th:href="@{/user/home}">Home</a></li>
+    <li><a th:href="@{/friends}">Friends</a></li>
+    <li<a th:href="@{/groups}">Groups</a></li>
+    <li>Uploads</li>
+  </ul>
+</div>
+
+<!-- user interface -->
+<div class="userInterface">
+
+  <ul>
+    <li> <img src="../../static/png/alert.png" alt=""> </li>
+    <li> <img src="../../static/png/friends.png" alt=""> </li>
+    <li> <img src="../../static/png/mail.png" alt=""> </li>
+
+  </ul>
+
+</div>
+
+
+<!-- user icon -->
+  <div class="userIcon">
+
+  <img src="../../static/png/userIcon.png" alt="">
+
+  </div>
+
+</div>
+<!-- navbar ends here -->
+<!--  -->
+</div>
+
+<!-- link/body wrapper -->
+<div class="linkBodyWrapper">
+
+
+
+<!-- body wrapper -->
+    <div class="bodyWrapper">
+
+<!-- create post -->
+<h1> <span th:text="${username}"/>'s Profile</h1>
+
+<div class="profileContainer">
+
+
+<div class="photoAndMessagingContainer">
+
+  <div class="userPhotoIcon">
+    userPhotoIcon
+  </div>
+
+  <div class="messagingModuleContainer">
+    <a>
+      <li><a th:href="@{/friends/add/user(user=${username})}">Add</a></li>
+      <li><a th:href="@{/messaging/sendTo/user/user(user=${username})}">Send Message</a></li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+
+  <div class="detailsWrapper">
+
+    <div class="userDetails">
+
+      <ul>
+        <li>work</li>
+        <li>school</li>
+        <li>birthday</li>
+        <li></li>
+      </ul>
+
+    </div>
+
+    <div class="rightOfDetails">
+      right of details
+
+    </div>
+
+      </div>
+
+    <div class="userPostsOverflow">
+      <tr th:each="post: ${feed}">
+
+    <div class="userPostContainer">
+    <div class="userPostInfo">
+      <p th:text="${post.username} + ${post.datePosted}"></p>
+    </div>
+    <div class="subjectContentContainer">
+      <div class="postSubject">
+          <span th:text="${post.subject}"/>
+    </div>
+        <div class="postContent">
+            <span th:text="${post.content}"/>
+      </div>
+    </div>
+
+  </div>
+
+
+    </tr>
+
+
+  </div>
+
+
+
+    </tr>
+
+    </div>
+
+    <div class="">
+
+    </div>
+
+
+    <div class="intro">
+
+      <!-- <ul>
+        <li>details</li>
+        <li>photos</li>
+
+        <li>work</li>
+        <li>school</li>
+        <li>about me</li>
+      </ul> -->
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+    <div class="footer">
+
+      <h1><center>2019 jdevmin.tech<center></h1>
+
+    </div>
+
+
+  </div>
+
+  </body>
+</html>

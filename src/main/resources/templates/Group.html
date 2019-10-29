@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>Group Page</title>
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+  .chatGroupInfoDiv,.groupAdministratorsDiv, .usersJoinedDiv, .createNewPostFormDiv {
+    margin: 1%;
+    border-style: solid;
+    min-width: 50%;
+
+  }
+
+</style>
+
+  </head>
+  <body>
+
+
+<div class="chatGroupInfoDiv">
+chat group info:<br>
+
+chat group name = <span th:text="${group.chatGroupName}"></span><br>
+date created = <span th:text="${group.dateCreated}"></span><br>
+group id = <span th:text="${group.groupId}"></span><br>
+</div>
+
+<div class="groupAdministratorsDiv">
+
+group administrators: <br>
+<tr th:each="administrator: ${administrators}">
+
+<td>group administrator: <span th:text="${administrator}"/> </td><br>
+</tr>
+
+</div>
+
+
+<div class="usersJoinedDiv">
+
+  <span th:if="${isMember}"> Welcome back, <span th:text="${user}"/>! </span>
+  <span th:unless="${isMember}"> <a th:href="@{/groups/join/groupId(groupId=${group.groupId})}">Click here to join <span th:text="${group.chatGroupName}"/></a><br> </span>
+
+
+(<span th:text="${size}"/>) users joined: <br>
+<tr th:each="user: ${usersJoined}">
+
+  <td>user joined:  <a th:href="@{/user/profile/user(user=${user})}">  <span th:text="${user}"/> </a></td><br>
+</tr>
+</div>
+<br>
+
+<div class="createNewPostFormDiv">
+  create a new post
+  <form action="#" method="POST" th:action="@{/groups/post/postToGroupId(postToGroupId=${group.groupId})}" th:object="${postRequest}">
+
+    <input th:field="${postRequest.subject}" type="text"/><br>
+    <input th:field="${postRequest.content}" type="text"/><br>
+    <input type="submit" value="Submit"></input>
+  </form>
+
+</div>
+
+<tr th:each="post: ${posts}" style="display:flex;flex-direction:column-reverse;">
+<div class="postInfo" style="border-style:solid;">
+<td>post id: <span th:text="${post.chatGroupPostId}"/> </td><br>
+<td>post chat group name: <span th:text="${post.publicChatGroup.chatGroupName}"/> </td><br>
+  <td>post owner username: <a th:href="@{/user/profile/user(user=${post.postOwner})}"> <span th:text="${post.postOwner}"/> </a></td><br>
+<td>post subject: <span th:text="${post.subject}"/> </td><br>
+<td>post content: <span th:text="${post.content}"/> </td><br>
+<td>date posted: <span th:text="${post.datePosted}"/> </td><br>
+  <td> <a th:href="@{/groups/post/delete/post(postId=${post.chatGroupPostId},chatGroupName=${group.chatGroupName})}"> [click here to delete this post]</a>  </td>
+
+</div>
+</tr>
+
+<br>
+<br>
+
+
+
+</body>
+</html>

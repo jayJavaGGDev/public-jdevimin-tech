@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>Landing Page</title>
+
+    <style>
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+  background-color: #1a5276;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.bodyWrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-content:center;
+  margin-top: 5%;
+  width:100%;
+  background-color: #1a5276;
+  height: 100%;
+}
+
+p {
+  color: #ffffff;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 124px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 23px;
+}
+
+.bodyWrapper .userForm input {
+  top: 335px;
+  text-align: center;
+}
+
+.footerWrapper{
+
+  margin-bottom: 4px;
+
+
+  bottom: 0;
+}
+
+.footerWrapper h1{
+  display: inline-block;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 22px;
+  font-variant: normal;
+  line-height: 20px;
+  font-weight: 600;
+
+}
+
+.otherOptions{
+  margin-top: 20px;
+}
+
+.otherOptions h1 {
+  font-size: 16px;
+}
+
+a {
+  font-size: 12px;
+
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+h1 {
+  color:#cacfd2;
+  font-size: 12px;
+}
+
+.button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+input{
+  width:500px;
+  height: 50px;
+}
+
+button {
+  width: 300px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+/* MOBILE FORMATTING */
+@media screen and (max-width: 1200px) {
+  input {
+    height: 20%;
+    width: 80%;
+    font-size: 35px;
+
+  }
+
+  button {
+    width: 80%;
+    min-height: 100%;
+    font-size: 35px;
+  }
+
+
+
+
+}
+    </style>
+
+
+
+  </head>
+  <body>
+
+
+<div class="bodyWrapper">
+<br><br>
+  <p>Jdevmin.tech</p>
+
+
+  <div class="login">
+      <div class="userForm">
+    <form action="#" method="POST" th:action="@{auth/preauth}" th:object="${request}">
+
+        <input th:field="${request.username}" type="text"/><br>
+        <input th:field="${request.password}" type="text"/><br>
+<input type="submit" value="Submit"></input>
+   </form>
+
+
+   <div class="otherOptions">
+     <br>
+    <h1> Don't have an account?<h1>
+   </div>
+   <a th:href="@{/user/account/registration/form}"><button type="button">Create a new User</button></a>
+
+   <br><a th:action="@{/forgotPass}">Forgot Password?</a>
+    -
+    <a th:action="@{/contact}">Contact Developer</a>
+
+   </div>
+   <div class="">
+     <br>
+   </div>
+
+ </div>
+
+
+
+
+
+
+
+
+
+</div>
+<div class="footerWrapper">
+<h1>2019 jdevmin.tech<h1>
+</div>
+
+  </body>
+</html>

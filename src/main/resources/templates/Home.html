@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>New Home</title>
+
+
+<style>
+
+/* DEFAULT */
+body {
+  background-color: #1a5276;
+}
+
+h1 {
+  color: #333339;
+
+}
+
+.header {
+  background-color: #1a5276;
+
+}
+
+.body {
+  background-color: #eff0f1;
+  border-style: inset;
+  border-radius: 8px;
+  border-width: .5px;
+  border-color: #2a2a2e;
+
+}
+
+
+
+/* POST FRAGMENT */
+
+
+    .userPostContainer {
+
+      text-align: center;
+      position:relative;
+      align-self: center;
+      overflow: show;
+      width: 90%;
+      min-height: 350px;
+      background-color:#eff0f1;
+      border-style: groove;
+      border-width: thin;
+      border-radius: 8px;
+      margin:auto;
+      margin-bottom: 8px;
+    }
+
+      .userPostInfo {
+
+        max-width: 100%;
+        min-height: 85px;
+        background-color: #1a5276;
+            text-shadow: -1px 0 #333339, 0 1px #333339, 1px 0 #333339, 0 -1px #333339;
+        border-style: ridge;
+        border-width: thin;
+        border-radius: 8px 8px 0px 0px;
+      }
+
+      p {
+         color: #ffffff;
+        text-align:center;
+        margin-top: 24px;
+font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+font-size: 40px;
+font-style: normal;
+font-variant: normal;
+font-weight: 700;
+line-height: 23px;
+      }
+
+      .postContent {
+        color: #333339;
+         font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+         font-size: 14px;
+         font-style: normal;
+         font-variant: normal;
+         font-weight: 400;
+         line-height: 20px;
+      }
+
+      .commentsContainer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+
+/* DESKTOP FORMATTING */
+@media screen and (min-width: 1201px){
+  .header {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 10vh;
+  }
+
+
+    .header .logo {
+      height:68px;
+      margin-bottom: 8px;
+      box-shadow: 0px 16px 32px 0px black;
+      border-radius: 50%;
+    }
+
+    .header .userInterface {
+      min-width: 25%;
+      min-height: 12%;
+    }
+
+    .header .bigWelcomeMessage {
+      margin-top: 20px;
+    }
+
+    .header .bigWelcomeMessage h1{
+      display: contents;
+      color:#ffffff;
+      text-shadow: -1px 0 #333339, 0 1px #333339, 1px 0 #333339, 0 -1px #333339;
+
+    }
+    .littleWelcomeMessage{
+      display: none;
+    }
+
+  .body {
+    border-style: solid;
+    width: 100%;
+    min-height: 700px;
+    margin:auto;
+    background-color: #eff0f1;
+
+  }
+
+  .footer {
+
+  }
+
+  .littleLeftUi, .littleRightUi {
+    display: none;
+  }
+  ul {
+    text-shadow: -1px 0 #333339, 0 1px #333339, 1px 0 #333339, 0 -1px #333339;
+  }
+  ul li {
+    list-style: none;
+    display: inline-block;
+    margin:auto;
+    color: #ffffff;
+    font-size: 32px;
+  }
+
+  ul li:hover{
+    border-radius: 8px;
+
+      box-shadow: 0px 16px 32px 0px black;
+
+  }
+
+
+.userPostContainer {
+  max-width: 45%;
+  margin:auto;
+  position:absolute;
+  top: 0;
+}
+
+.mainContentContainer{
+  margin:auto;
+  display: flex;
+position: relative;
+  flex-direction: row;
+  width: 75%;
+  min-height: 800px;
+}
+
+.bigRightDiv{
+  position: absolute;
+  right:0;
+  margin-left: 10%;
+  border-style: solid;
+  min-height: 100%;
+  width: 50%;
+  float: right;
+}
+
+.body .newPostForm {
+  display: none;
+}
+
+.bigBottomDiv {
+  border-style: solid;
+  border-color: black;
+  margin:auto;
+  display: contents;
+}
+
+
+}
+
+
+/* MOBILE FORMATTING */
+@media screen and (max-width: 1200px) {
+h1 {
+  font-size: 75px;
+}
+
+
+  .header {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 145px;
+    font-size: 98px;
+  }
+
+  .header .littleLeftUi, .littleRightUi {
+    border-radius: 50%;
+    margin-top: 4px;
+    height: 24%;
+    width: 24%;
+  }
+
+
+  .header .littleLeftUi {
+    position: relative;
+    display: inline-block;
+  }
+
+  .littleLeftUi .dropDown-content {
+    display:none;
+    position: absolute;
+    top:0;
+    background-color: #ffffff;
+    min-width: 500px;
+    max-width: 700px;
+    border-style: solid;
+    border-radius: .5px;
+    border-color:#2a2a2e;
+    border-style: inset;
+    color: #333339;
+    box-shadow: 0px 16px 32px 0px black;
+  }
+  .littleLeftUi:hover .dropDown-content {
+    display: block;
+  }
+
+  .dropDown-content ul li:hover {
+    font-variant: small-caps;
+  }
+
+
+
+  .littleLeftUi ul {
+    margin:auto;
+    list-style: none;
+
+
+  }
+
+
+
+
+  .header .logo {
+    border-radius: 12px;
+    margin-top: 8%;
+    width: 16%;
+    height: 12%;
+    text-align: center;
+  }
+
+  .header .bigWelcomeMessage{
+    display: none;
+  }
+
+  .header .userInterface {
+    display: none;
+  }
+
+
+
+
+
+  .body {
+    margin: auto;
+    width: 96%;
+    min-height: 700px;
+    background-color: #ffffff;
+    box-shadow: 0px 16px 32px 0px black;
+  }
+
+  .newPostForm {
+    text-align: center;
+    margin: auto;
+    margin-top: 45px;
+    width: 85%;
+    min-height: 45px;
+  }
+  .newPostForm input, button {
+    height: auto;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .footer {
+
+  }
+
+
+.userPostInfo p {
+  font-size: 75px;
+  margin-top:25px;
+}
+.userPostContainer{
+  background-color: #ffffff;
+}
+.postContent span {
+  font-size: 65px;
+}
+
+.bigRightDiv{
+  display: none;
+}
+
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+
+  </head>
+  <body>
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+      <div class="littleLeftUi">
+        <img src="../../png/hamburger.png" th:src="@{../../png/hamburger.png}" width="100%" height="100%" margin="auto">
+        <div class="dropDown-content">
+          <ul>
+
+              <a th:href="@{/user/profile/user(user=${currentUser})}"><li>Profile</li></a>
+            <a th:href="@{/groups}"><li>Groups</li></a>
+            <a th:href="@{/friends}"><li>Friends</li></a>
+            <a th:href="@{/logout}"><li>Logout</li></a>
+
+
+          </ul>
+
+        </div>
+      </div>
+
+
+
+      <div class="logo">
+        <a th:href="@{/user/home}">
+        <img src="../../png/jLogo.png" th:src="@{../../png/jLogo.png}" width="100%" height="100%" margin="auto"></a>
+      </div>
+
+      <div class="bigWelcomeMessage">
+        <center><h1>Welcome back, <span th:text="${user}"/>!</h1></center>
+      </div>
+
+      <div class="littleRightUi">
+          <a th:href="@{/user/inbox}">
+<span th:if="${mail}"><img src="../../png/gotMail.png" th:src="@{../../png/gotMail.png}" width="100%" height="100%" margin="auto"></span>
+<span th:unless="${mail}"> <img src="../../png/mail.png" th:src="@{../../png/mail.png}" width="100%" height="100%" margin="auto"></span>
+</a>
+
+      </div>
+
+      <div class="userInterface">
+<ul>
+  <span style="font-size:24px;color:white;">|</span>
+  <li> <a th:href="@{/user/home}"><u>Home</u></li></a> <span style="font-size:24px;color:white;">|</span>
+    <a th:href="@{/user/profile/user(user=${currentUser})}"><li>Profile</li></a> <span style="font-size:24px;color:white;">|</span>
+  <a th:href="@{/groups}"><li>Groups</li></a> <span style="font-size:24px;color:white;">|</span>
+  <a th:href="@{/friends}"><li>Friends</li></a> <span style="font-size:24px;color:white;">|</span>
+  <a th:href="@{/logout}"><li>Logout</li></a> <span style="font-size:24px;color:white;">|</span>
+
+
+
+</ul>
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+<!-- BODY -->
+    <div class="body">
+
+      <div class="littleWelcomeMessage">
+        <center><h1>Welcome back, <span th:text="${user}"/>!</h1></center>
+      </div>
+
+      <div class="newPostForm">
+  <span style="color:#333339; font-size:32px;">Create a new post to add to your feed:</span>
+        <form action="#" method="POST" th:action="@{/user/posts/create}" th:object="${postForm}">
+          <input th:field="${postForm.subject}" type="text" placeholder="subject"/><br>
+          <input th:field="${postForm.content}" type="text" placeholder="content"/><br>
+        <button class="submitButton" type="submit" name="button" value="Submit Post">Submit Post</button>
+
+      </form>
+
+      </div>
+
+<br>
+
+<!-- FEED -->
+
+<div class="mainContentContainer" >
+
+<div class="feedOverflowContainer"style="overflow:scroll;max-height:700px;">
+
+
+<tr th:each="post: ${posts}">
+
+  <div class="userPostContainer">
+
+    <div class="wrapper">
+
+
+
+  <div class="userPostInfo">
+    <p><span th:text="${post.subject}">post subject</span> <p>
+
+  </div>
+  <div class="subjectContentContainer">
+    <div class="postSubject">
+  </div>
+      <div class="postContent" style="margin-top:24px;">
+        <span th:text="${post.content}">post content</span>
+    </div>
+  </div>
+
+  </div>
+  <div class="commentsContainer">
+    commentsContainer
+
+
+  </div>
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+<!-- feed end -->
+</tr>
+</div>
+<div class="bigRightDiv">
+  bigRightDiv
+
+</div>
+
+<!-- main content container end -->
+</div>
+
+<div class="bigBotttomDiv">
+  bigBottomDiv
+</div>
+
+
+<!-- body end -->
+</div>
+
+
+
+<!-- FOOTER -->
+    <div class="footer">
+<center><span style="color:#ffffff;">| www.jdevmin.tech | 2019 |</span></center>
+    </div>
+
+  </body>
+</html>

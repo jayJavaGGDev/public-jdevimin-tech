@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+
+<div sec:authorize="hasRole('ROLE_ANONYMOUS')">
+
+
+    <h1>create new post</h1>
+    <form action="#" method="POST" th:action="@{/user/posts/createNewPost}" th:object="${newPostModel}">
+        <p>subject: <input th:field="*{subject}" type="text"/></p>
+        <p>content: <input th:field="*{content}" type="text"/></p>
+        <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+    </form>
+
+</div>
+</body>
+</html>

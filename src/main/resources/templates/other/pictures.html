@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <style>
+    .image-container {
+    align:center;
+        margin: 0,0,0,0;
+        width: 100px;
+
+        }
+
+        .image {
+         margin: 0 auto;
+     width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="image-container">
+
+    <div class="image">
+<tr th:each="img: ${imgs}">
+
+            <img style="max-height:400px;max-width200px;" th:src="@{${img}}"/>
+<!--    <img src="@{$img}" width="1000" th:src="@{${img}}"/>-->
+    <p th:text="${img}"/>
+    <br>
+</tr>
+    </div>
+</div>
+</body>
+</html>

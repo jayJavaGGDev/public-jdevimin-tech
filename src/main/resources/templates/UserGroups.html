@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>Users Joined Groups</title>
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+  .chatGroupInfoDiv {
+    margin: 1%;
+    border-style: solid;
+    min-width: 50%;
+
+  }
+
+</style>
+
+  </head>
+  <body>
+
+not what you were looking for?<br>
+<a th:href="@{/groups/find}">click here to see a list of all groups</a><br>
+<div class="chatGroupInfoDiv">
+chat group info:<br>
+
+  <tr th:each="group: ${groupsJoined}">
+    <div class="chatGroupInfoDiv"></div>
+    chat group name = <a th:href="@{/groups/get/group(groupName=${group})}"><span th:text="${group}"/></a><br>
+  </tr>
+</div>
+
+
+
+
+</body>
+</html>

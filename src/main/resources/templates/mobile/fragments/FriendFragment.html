@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
+  <meta charset="utf-8">
+  <title>Friend Fragment</title>
+
+</head>
+<style>
+
+
+  .friendFragmentWrapper {
+    display: flex;
+    flex-direction: right;
+    border-style: solid;
+    border-style: hidden;
+    width: 600px;
+    height: 128px;
+  }
+
+  .pictureWrapper,
+  .pictureWrapper img {
+    border-style: none;
+    border-right-style: groove;
+    width: 128px;
+    height: 128px;
+  }
+
+  .infoBoxWrapper {
+display: table-row;
+    background-color: #e9ebee;
+    width: 100%;
+    height: 128px;
+    border-right-style: inset;
+    border-top-right-radius: 36px;
+    border-bottom-right-radius: 36px;
+  }
+
+  .userInfoContainer{
+    text-align: center;
+    position: fixed;
+    height: 128px;
+    width: 158px;
+    border-right-style: inset;
+    border-radius: 12px;
+  }
+
+  .userInfoContainer h1 {
+    font-size: 24px;
+  }
+
+  .usernameContainer{
+    height: 35px;
+    margin-top: 0;
+  }
+
+  .contactContainer{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    height: 93px;
+    width: 100%;
+  }
+  .addFriendButton, .sendMessageButton{
+    margin-top: 12px;
+    margin-left: 12px;
+    margin-right: 12px;
+    height: 40px;
+    width: 40px;
+  }
+
+  .contentWrapper{
+    margin:auto;
+    display: block;
+    float:right;
+    width: inherit;
+    height: 128px;
+    width: 300px;
+    align-self: right;
+    position: relative;
+  }
+
+  .textContainer {
+    margin-top:2px;
+    font-size: 12px;
+    width: 300px;
+    height: 100%;
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+</style>
+
+
+<body>
+  <div th:fragment="friendFragment">
+
+
+
+  <div class="friendFragmentWrapper">
+
+    <div class="pictureWrapper">
+      <img src="../../../../resources/static/png/portrait.png" alt="User Portrait">
+    </div>
+
+    <div class="infoBoxWrapper">
+
+      <div class="userInfoContainer">
+
+<div class="usernameContainer">
+<h1> <span th:text="${friend.identity}"></span> </h1>
+</div>
+
+<div class="contactContainer">
+
+  <div class="addFriendButton">
+<button type="button" name="Add Friend">add</button>
+  </div>
+
+  <div class="sendMessageButton">
+    <button type="button" name="Message">msg</button>
+
+  </div>
+
+</div>
+
+
+
+
+      </div>
+
+      <div class="contentWrapper">
+
+        <div class="textContainer">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+    </div>
+
+</body>
+
+</html>

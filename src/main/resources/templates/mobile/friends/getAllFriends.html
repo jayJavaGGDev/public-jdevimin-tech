@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <style>
+    .image-container {
+    align:center;
+        margin: 0,0,0,0;
+        width: 100px;
+
+        }
+
+        .image {
+         margin: 0 auto;
+     width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="image-container">
+
+    <div class="image">
+<tr th:each="friend: ${friendsList}">
+
+
+
+    <p th:text="${friend.username}"/>
+    <br>
+</tr>
+    </div>
+</div>
+</body>
+</html>

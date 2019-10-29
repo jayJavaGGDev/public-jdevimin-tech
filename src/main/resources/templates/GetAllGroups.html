@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style>
+  body {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+    .groupInfoDiv {
+      margin: 1%;
+      border-style: solid;
+      min-width: 50%;
+
+    }
+  </style>
+  <body>
+
+
+
+
+<tr th:each="group: ${groups}">
+<div class="groupInfoDiv">
+<td>group name: <a th:href="@{/groups/get/group(groupName=${group.chatGroupName})}"> <span th:text="${group.chatGroupName}"/> </td></a><br>
+<td>date created: <span th:text="${group.dateCreated}"/> </td><br>
+
+
+    <br>
+  </div>
+</tr>
+
+
+
+</body>
+</html>

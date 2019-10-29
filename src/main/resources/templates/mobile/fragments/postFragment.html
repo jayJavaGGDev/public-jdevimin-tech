@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>User Post Div Fragment</title>
+
+    <!-- facebook color scheme
+
+    #e9ebee - background
+    #4267b2 - navbar
+    #1a2946 - navbar buttons
+    #fffeff - navbar text
+    #4267b2 - add friend buttons
+    #ffffff - add friend text on button
+    #1d2129 - post text color
+    #ffffff - post background color (white)
+    #93979f - subtext
+    #d2d5da - post filler text
+    #1d213d - create post - post content
+
+    resolution - 1920x1080
+   -->
+
+    <style>
+
+
+    .userPostContainer {
+      text-align: center;
+      position:relative;
+      align-self: center;
+      overflow: show;
+      width: 100%;
+      height: 255px;
+      background-color:#ffffff;
+      border-style: groove;
+      border-width: thin;
+      border-radius: 8px;
+      margin:auto;
+    }
+
+      .userPostInfo {
+        max-width: 100%;
+        height: 45px;
+        background-color: #1a5276;
+        border-style: ridge;
+        border-width: thin;
+        border-radius: 8px 8px 0px 0px;
+      }
+
+      p {
+         color: #ffffff;
+        text-align:center;
+font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+font-size: 17px;
+font-style: normal;
+font-variant: normal;
+font-weight: 700;
+line-height: 23px;
+      }
+
+      .postContent {
+        color: #333339;
+         font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+         font-size: 14px;
+         font-style: normal;
+         font-variant: normal;
+         font-weight: 400;
+         line-height: 20px;
+      }
+
+      .commentsContainer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+
+<div class="userPostContainer">
+
+  <div class="wrapper">
+
+
+
+<div class="userPostInfo">
+  <p>@user : subject </p>
+</div>
+<div class="subjectContentContainer">
+  <div class="postSubject">
+</div>
+    <div class="postContent">
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+   incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum."
+  </div>
+</div>
+
+</div>
+<div class="commentsContainer">
+  commentsContainer
+
+
+</div>
+
+
+</div>
+
+
+  </body>
+</html>

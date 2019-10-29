@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>New Home</title>
+
+
+<style>
+
+body {
+  background-color: #1a5276;
+}
+
+.header {
+  background-color: #1a5276;
+
+}
+
+.body {
+  background-color: #ffffff;
+  border-style: inset;
+  border-radius: 8px;
+  border-width: .5px;
+  border-color: #2a2a2e;
+
+}
+
+
+@media screen and (min-width: 1201px){
+  .header {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 10vh;
+
+
+  }
+
+
+    .header .logo {
+      height: 10vh;
+    }
+
+    .header .userInterface {
+      border-style: solid;
+      min-width: 25%;
+      min-height: 12%;
+    }
+
+  .body {
+    border-style: solid;
+    width: 100%;
+    min-height: 700px;
+
+  }
+
+  .footer {
+
+  }
+
+  .littleLeftUi, .littleRightUi {
+    display: none;
+  }
+  ul li {
+    list-style: none;
+    display: inline-block;
+
+  }
+
+}
+
+@media screen and (max-width: 1200px) {
+
+  .header {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 145px;
+    font-size: 98px;
+  }
+
+  .header .littleLeftUi, .littleRightUi {
+    border-radius: 20px;
+    margin-top: 4px;
+    height: 24%;
+    width: 24%;
+  }
+
+
+  .header .logo {
+    border-radius: 12px;
+    margin-top: 8%;
+    width: 16%;
+    height: 12%;
+    text-align: center;
+  }
+
+  .header .userInterface {
+    display: none;
+  }
+
+
+
+
+
+  .body {
+    width: 100%;
+    min-height: 700px;
+
+  }
+
+  .footer {
+
+  }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+  </head>
+  <body>
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+      <div class="littleLeftUi">
+        <img src="../../../static/png/hamburger.png" th:src="@{../../../png/hamburger.png}" width="100%" height="100%" margin="auto">
+      </div>
+
+      <div class="logo">
+        <img src="../../../../static/png/jLogo.png" th:src="@{../../../png/jLogo.png}" width="100%" height="100%" margin="auto">
+      </div>
+
+      <div class="littleRightUi">
+      <img src="../../../../../static/png/gotMail.png" th:src="@{../../../png/gotMail.png}" width="100%" height="100%" margin="auto">
+      </div>
+
+      <div class="userInterface">
+<ul>
+  <li>Home</li>
+  <li>Friends</li>
+  <li>Groups</li>
+  <li>Profile</li>
+
+</ul>
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+<!-- BODY -->
+    <div class="body">
+<h1>body</h1>
+    </div>
+
+
+<!-- FOOTER -->
+    <div class="footer">
+footer
+    </div>
+
+  </body>
+</html>

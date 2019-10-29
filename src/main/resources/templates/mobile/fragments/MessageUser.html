@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>Send a message to {username}</title>
+  </head>
+  <body>
+
+    <form action="#" method="POST" th:action="@{/messaging/sendMessage/send/toUser(toUser=${toUser})}" th:object="${message}">
+
+        <input th:field="${message.subject}" type="text" placeholder="subject"><br>
+        <input th:field="${message.content}" type="text" placeholder="content"/><br>
+<input type="submit" value="Submit" style="width:230px"></input>
+   </form>
+
+  </body>
+</html>

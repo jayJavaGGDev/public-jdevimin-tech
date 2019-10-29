@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>Jdevmin.tech :: ${pageTitle}</title>
+
+        <!-- facebook color scheme
+
+        #e9ebee - background
+        #4267b2 - navbar
+        #1a2946 - navbar buttons
+        #fffeff - navbar text
+        #4267b2 - add friend buttons
+        #ffffff - add friend text on button
+        #1d2129 - post text color
+        #ffffff - post background color (white)
+        #93979f - subtext
+        #d2d5da - post filler text
+        #1d213d - create post - post content
+
+        resolution - 1920x1080
+       -->
+
+<style>
+
+body {
+  background-color: #1a5276;
+  color: #ffffff;
+  text-shadow: 1px 1px black;
+
+
+}
+
+
+
+.header{
+  display: flex;
+  justify-content: space-around;
+  min-height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #1a5276;
+  border-style: inset;
+  border-width: 0px 0px .5px 0px;
+}
+
+  .header .logo {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+  }
+  .header .userWelcome {
+    height: 50px;
+    width: 175px;
+    background-color: #eaeaea;
+  }
+
+  .header .userInterface {
+    height: 50px;
+    width: 200px;
+    background-color: #eaeaea;
+  }
+
+
+
+  .main {
+    margin:auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+    float: right;
+    min-height: 600px;
+    width: 100%;
+  }
+
+
+
+  .leftNav {
+    background-color: #1a5276;
+    height: 600px;
+    width: 15%;
+  }
+  .leftNav ul, .leftNav li {
+    list-style: none;
+    margin:0;
+    padding:0;
+    margin-top: 4px;
+  }
+  .leftNav ul li:hover{
+    background-color: #eaeaea;
+  }
+
+
+
+
+
+
+
+
+
+  .middleInnerMain{
+    height: 600px;
+    width: 70%;
+    background-color:#adadad;
+  }
+
+  .rightNav {
+    height: 600px;
+    width: 15%;
+    background-color: #1a5276;
+  }
+
+    .rightav ul, .rightNav li {
+      width: 100%;
+      text-align: right;
+      list-style: none;
+      margin:0;
+      padding:0;
+      margin-top: 4px;
+    }
+    .rightNav ul li:hover{
+      background-color: #eaeaea;
+    }
+
+
+
+
+
+
+
+  .footer {
+    background-color:#1a5276;
+    min-height: 12%;
+    min-width: 300px;
+  }
+
+  /* friend fragments stuff starts here */
+
+
+    .friendFragmentWrapper {
+      display: flex;
+      flex-direction: right;
+      border-style: solid;
+      border-style: hidden;
+      width: 600px;
+      height: 128px;
+    }
+
+    .pictureWrapper,
+    .pictureWrapper img {
+      border-style: none;
+      border-right-style: groove;
+      width: 128px;
+      height: 128px;
+    }
+
+    .infoBoxWrapper {
+  display: table-row;
+      background-color: #e9ebee;
+      width: 100%;
+      height: 128px;
+      border-right-style: inset;
+      border-top-right-radius: 36px;
+      border-bottom-right-radius: 36px;
+    }
+
+    .userInfoContainer{
+      text-align: center;
+      position: fixed;
+      height: 128px;
+      width: 158px;
+      border-right-style: inset;
+      border-radius: 12px;
+    }
+
+    .userInfoContainer h1 {
+      font-size: 24px;
+    }
+
+    .usernameContainer{
+      height: 35px;
+      margin-top: 0;
+    }
+
+    .contactContainer{
+      display: flex;
+      flex-direction: row;
+      margin: auto;
+      height: 93px;
+      width: 100%;
+    }
+    .addFriendButton, .sendMessageButton{
+      margin-top: 12px;
+      margin-left: 12px;
+      margin-right: 12px;
+      height: 40px;
+      width: 40px;
+    }
+
+    .contentWrapper{
+      margin:auto;
+      display: block;
+      float:right;
+      width: inherit;
+      height: 128px;
+      width: 300px;
+      align-self: right;
+      position: relative;
+    }
+
+    .textContainer {
+      margin-top:2px;
+      font-size: 12px;
+      width: 300px;
+      height: 100%;
+      word-wrap: break-word;
+      text-align: center;
+    }
+</style>
+
+
+  </head>
+  <body>
+
+    <div class="header">
+
+      <div class="logo">
+        <img src="#" alt="">
+<!-- logo ends here -->
+      </div>
+
+      <div class="userWelcome">
+        welcome back <span th:text="${identity}">username not available</span>!
+
+      </div>
+
+      <div class="userInterface">
+        .userInterface
+
+      </div>
+
+
+
+
+<!-- header div ends here -->
+    </div>
+
+
+
+
+
+    <div class="main">
+  <div class="leftNav">
+    <ul>
+    <a th:href="@{/user/messaging/user/(user=${user})}"><li>Messages</li></a>
+      <a th:href="@{/groups}"><li>Groups</li></a>
+      <a th:href="@{/friends}"><li>Friends</li></a>
+    </ul>
+
+<!-- leftNav div ends here -->
+  </div>
+  <div class="middleInnerMain">
+    <!-- PLACE THYMELEAF FRAGMENTS HERE -->
+    <tr th:each="friend: ${friends}">
+
+
+<div th:insert="mobile/fragments/FriendFragment :: friendFragment">
+
+</div>
+    </tr>
+<!-- middleInnerMain div ends here -->
+  </div>
+
+  <div class="rightNav">
+
+    <ul>
+      <li>stuff</li>
+    </ul>
+<!-- rightNav div ends here -->
+  </div>
+
+<!-- main div ends here -->
+    </div>
+
+    <div class="footer">
+<p><center>jdevmin.tech | 2019 | jayjavaggdev@gmail.com</p><center>
+    </div>
+
+<!-- body ends here -->
+  </body>
+</html>
