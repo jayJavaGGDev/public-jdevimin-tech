@@ -5,7 +5,7 @@ A Social Media Web-app made using Spring Boot, Spring Security, Spring Data JPA,
 
 Instructions on how to run:
 
-Eventually this project will be hosted on my personal website which can be found at 'www.jdevmin.tech'.
+Eventually this project will be hosted on my personal website which can be found at '(EDIT:7/20/2020 I do not own the url jdevmin.tech anymore)'.
 
 Until then, 
 
